@@ -1,0 +1,5 @@
+## Requirements
+- Python 3.7
+
+## Setup
+- From project directory, run ` python3 main.py` in a terminal
