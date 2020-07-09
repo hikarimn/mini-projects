@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Summary - Cheapest flight from ORD to RGA</title>
+    {% endif %}
+</head>
+<body style="background-color:white">
+    
+    <center>
+        <p>Average Minimium Price in July: {{summary['avg_min_price']}}</p>
+        <p>Flight with the cheapest price in July: <br>
+            Flight ID: {{summary['flight_with_min_price'][0] }}<br>
+            Price: {{summary['flight_with_min_price'][1] }} <br>
+            Direct Flight?: {{summary['flight_with_min_price'][2] }} <br>
+            Airline: {{summary['flight_with_min_price'][3][1] }} <br>
+            Departing from: {{summary['flight_with_min_price'][4][2] }} <br>
+            Departing for: {{summary['flight_with_min_price'][5][2] }} <br>
+        </p>
+    </center>
+</body>
+</html>

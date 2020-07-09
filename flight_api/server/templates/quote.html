@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Cheapest flight from ORD to RGA</title>
+    {% endif %}
+</head>
+<body style="background-color: white">
+    
+    <center>
+        <h1 style="font-family: Impact">Flight quote ID: {{quote[0]}}</h1>
+        <p>Minimium Price: {{quote[1]}}</p>
+        <p>Direct Flight?: {{quote[2]}}</p>
+        <p>Date: {{quote[6]}}</p>
+    </center>
+</body>
+</html>
