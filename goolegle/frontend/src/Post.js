@@ -65,7 +65,7 @@ class Post extends Component {
     return (
       <div className="submission">
         <p>
-          It may take a few seconds to display the result. 
+          It may take a few seconds or minutes to display the result. 
         </p>
         <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
           <p>
