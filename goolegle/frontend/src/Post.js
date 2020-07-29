@@ -49,54 +49,48 @@ class Post extends Component {
       url: this.state.url,
       index: this.state.index
     };
-    // console.log(data);
     axios
       .post(POST_URL, data, config)
       .then(res => {
-        //   console.log(res);
-          console.log(res.data);
-        //   console.log(this.state);
-        // this.setState({
-        //     urls: res
-        // });
           this.state.urls = res.data;
-          console.log('after');
-
-          console.log(this.state.urls);
-          console.log('result?');
-          console.log(this.state.urls);
           this.props.history.push({
             pathname: '/result',
-            state: { urls: this.state.urls }
+            state: { result: this.state.urls }
           });
           this.reset()
         })
   };
 
-  
   render() {    
     return (
       <div className="submission">
+        <p>
+          It may take a few seconds to display the result. 
+        </p>
         <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-        
+          <p>
           <TextField id="outlined-basic"  variant="outlined"
             placeholder="URL" value={this.state.url}
             onChange={this.onUrlChange} required
           />
-          <br></br><span></span><br></br>
+          </p>
+          <p>
           <TextField id="outlined-basic" variant="outlined"
             placeholder="Limit" value={this.state.index}
             onChange={this.onIndexChange} required
-          /><br></br><span></span><br></br>
+          />
+          </p>
+          <p>
           <Button variant="contained" color="primary" type="submit">
           Submit
           </Button>
+          </p>
         </form>
-        <br></br><span></span><br></br>
-        <Button variant="contained" type="tohome" href="/">
+        <p>
+          <Button variant="contained" type="tohome" href="/">
           Home
-        </Button>
-       
+          </Button>
+        </p>
       </div>
       
     );
@@ -105,39 +99,3 @@ class Post extends Component {
 
 export default Post;
 
-
-
-// render() {
-//     //   console.log(this.state);
-//     const resultUrls = this.state.urls;
-//     console.log(resultUrls);
-//     return (
-//       <div className="post">
-//         <form className="post" onSubmit={this.handleSubmit}>
-//           <input
-//             placeholder="Url" value={this.state.url}
-//             onChange={this.onUrlChange} required
-//           />
-//           <textarea
-//             placeholder="Index" value={this.state.index}
-//             onChange={this.onIndexChange} required
-//           />
-//           <button type="submit">Create Post</button>
-//         </form>
-//         <p>
-//             {this.state.url}
-//         </p>
-//         <p>
-//             {this.state.index}
-//         </p>
-//         <p>Urls: {resultUrls}</p>
-//         {resultUrls.length > 0 ? (
-//             <p>Urls: {resultUrls}</p>
-//             ) : (
-//             <p></p>
-//         )}
-       
-//       </div>
-      
-//     );
-//   }

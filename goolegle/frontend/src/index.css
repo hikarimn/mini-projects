@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +22,58 @@ code {
   text-align: center;
 }
 
+.result ul{
+  text-align: left;
+}
+
 #outlined-basic {
   border-spacing: 8px;
 }
 
+#page-numbers {
+  list-style: none;
+  display: flex;
+}
+
+ul {
+  list-style-type: square;
+}
+
+#page-numbers > ul {
+  overflow: auto;
+  list-style-type: none;
+}
+ 
+#page-numbers > li {
+  height: 25px;
+  float: left;
+  margin-right: 0px;
+  border-right: 1px solid #aaa;
+  padding: 0 20px;
+}
+ 
+#page-numbers > li:last-child {
+  border-right: none;
+}
+ 
+#page-numbers > li a {
+  text-decoration: none;
+  color: #ccc;
+  font: 25px/1 Helvetica, Verdana, sans-serif;
+  text-transform: uppercase;
+ 
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+ 
+#page-numbers > li a:hover {
+  color: #666;
+}
+ 
+#page-numbers > li.active a {
+  font-weight: bold;
+  color: #333;
+}
