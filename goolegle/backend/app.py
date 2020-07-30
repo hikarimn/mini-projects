@@ -2,21 +2,19 @@
 import time
 import os
 from flask import request, Flask, jsonify 
-
-from page_scroller import Page_scroller
+from page_crawler import Page_crawler
 
 app = Flask(__name__)
 
 @app.route('/api/v1/links', methods=['POST'])
-def get_all_quotes():
+def get_all_links():
     url = request.json['url']
     index = request.json['index']
-    scroller = Page_scroller(url, 5, index)
-    scraped_urls = scroller.run_scraper()
+    crawler = Page_crawler(url, 5, index)
+    scraped_urls = crawler.run_crawler()
     result = {
         'original_url': url,
         'list_size': len(scraped_urls),
-        'index': int(index),
         'urls': scraped_urls
     }
     return jsonify(result)

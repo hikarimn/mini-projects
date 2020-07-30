@@ -1,4 +1,4 @@
-# Woogle Backend
+# Goolegle Backend
 
 ## Prerequisites
 
