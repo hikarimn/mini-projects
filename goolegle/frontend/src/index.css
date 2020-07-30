@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  word-break: break-all;
 }
 
 code {
@@ -13,16 +14,17 @@ code {
 }
 
 .submission{
-  padding-top: 70px;
+  padding: 70px;
   text-align: center;
 }
 
 .result{
-  padding-top: 70px;
+  padding: 5% 20% 5% 20%;
   text-align: center;
 }
 
 .result ul{
+  list-style: none;
   text-align: left;
 }
 
@@ -30,13 +32,18 @@ code {
   border-spacing: 8px;
 }
 
+#url-list > ul{
+  overflow: auto;
+  list-style-type: none;
+}
+
+#url-list > li{
+  margin: 10px
+}
+
 #page-numbers {
   list-style: none;
   display: flex;
-}
-
-ul {
-  list-style-type: square;
 }
 
 #page-numbers > ul {

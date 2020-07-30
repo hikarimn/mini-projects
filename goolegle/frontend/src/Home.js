@@ -11,12 +11,11 @@ let config = {
   }
 class Home extends Component {
 
-  render() {
-    
+  render() {    
     return (
       <div className="submission">
           <Button variant="contained" type="notion" href="/post">
-          "Woogle" Code Challenge
+          Woogle
           </Button>
       </div>
       

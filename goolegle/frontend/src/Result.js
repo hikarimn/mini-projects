@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 class Result extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             original_url: props.location.state.result.original_url,
             list_size: props.location.state.result.list_size,
@@ -26,7 +27,7 @@ class Result extends React.Component {
         const currentUrls = urls.slice(indexOfFirstUrl, indexOfLastUrl)
 
         const renderUrls = currentUrls.map((url, index) => {
-            return <li key={index}>{url}</li>;
+        return <li key={index}>{url.title} - <a href = {url.url}>{url.url}</a></li>;
         });
         
         const pageNumbers = [];
@@ -36,7 +37,7 @@ class Result extends React.Component {
 
         const renderPageNumbers = pageNumbers.map(number => {
             return (
-                <li
+                <li  className="lists"
                 key={number}
                 id={number}
                 onClick={this.handleClick}
@@ -45,51 +46,44 @@ class Result extends React.Component {
               </li> 
            );
         });
-            
 
+        const renderButtons = 
+        <p>
+        <Button variant="contained" color="primary" type="tosubmission" href="/post">
+            Go back to submission page
+        </Button>
+        <br></br><br></br>        
+        <Button variant="contained" type="tohome" href="/">
+            Home
+        </Button>
+        </p>
+        
+            
         if(list_size == 0){
             return (
                 <div className="result">  
                     <p>
-                        Input: {original_url}
+                    Submitted URL: <a href = {original_url}>{original_url}</a>
                     </p>
                     <p>
-                        The submitted input was not valid url.
-                    </p>                 
-                    <p>
-                    <Button variant="contained" color="primary" type="tosubmission" href="/post">
-                        Go back to submission page
-                    </Button>
-                  </p>
-                    <p>
-                    <Button variant="contained" type="tohome" href="/">
-                        Home
-                    </Button>
-                    </p>
+                    The submitted input was not valid.
+                    </p>         
+                    {renderButtons}        
                 </div>    
             );
         } else {
             return (
                 <div className = "result">
                     <p>
-                        Input: {original_url}
-                    </p>
-                    <ul>
+                    Submitted URL: <a href = {original_url}>{original_url}</a>
+                    </p>      
+                    <ul id="url-list">
                         {renderUrls}
                     </ul>
                     <ul id="page-numbers">
                         {renderPageNumbers}
                     </ul>
-                    <p>
-                        <Button variant="contained" color="primary" type="tosubmission" href="/post">
-                        Go back to submission page
-                        </Button>
-                    </p>
-                    <p>
-                        <Button variant="contained" type="tohome" href="/">
-                        Home
-                        </Button>
-                    </p>
+                    {renderButtons}  
                 </div>
               );
         }

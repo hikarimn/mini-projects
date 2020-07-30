@@ -18,7 +18,6 @@ const initialState = {
   urls: ""
 };
 
-
 class Post extends Component {
 
   state = {
@@ -98,4 +97,3 @@ class Post extends Component {
 }
 
 export default Post;
-
